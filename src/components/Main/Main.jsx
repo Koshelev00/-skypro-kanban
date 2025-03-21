@@ -1,6 +1,7 @@
-import '../../App.css'
+// import '../../App.css'
 import Column from '../Column/Column'
 import { cardList } from '../../data.js';
+import {SMain} from './Main.styled.js'
 
 export default function Main() {
 const columns = {
@@ -12,7 +13,7 @@ const columns = {
 };
 
 return (
-  <main className="main">
+  <SMain className="main">
       <div className="container">
           <div className="main__block">
               <div className="main__content">
@@ -22,6 +23,6 @@ return (
               </div>
           </div>
       </div>
-  </main>
+  </SMain>
 );
 }

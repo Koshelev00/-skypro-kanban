@@ -1,7 +1,8 @@
-import '../../App.css'
+// import '../../App.css'
+import { SCard } from './Card.styled'
 export default function Card({title, date, topic, id}) {
     return (
-        <div className="cards__card card" id= {id}>
+        <SCard className="cards__card card" id= {id}>
                   <div className="card__group">
                    {cardTopic (topic)}
                     <a href="#popBrowse" target="_self">
@@ -31,7 +32,7 @@ export default function Card({title, date, topic, id}) {
                       <p>{date}</p>
                     </div>
                   </div>
-                </div>
+                </SCard>
     )
 }
 const cardTopic = (topic) => {

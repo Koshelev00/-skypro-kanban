@@ -1,8 +1,9 @@
-import '../../App.css'
+// import '../../App.css'
 import PopUser from '../PopUser/PopUser'
+import { SHeader } from './Header.styled'  
 export default function Header() {
     return (
-        <header className="header">
+        <SHeader className="header">
         <div className="container">
           <div className="header__block">
             <div className="header__logo _show _light">
@@ -17,6 +18,6 @@ export default function Header() {
             </nav>					
           </div>
         </div>			
-      </header>
+      </SHeader>
     )
 }

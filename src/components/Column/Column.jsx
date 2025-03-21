@@ -1,8 +1,9 @@
-import "../../App.css";
+// import "../../App.css";
 import Card from "../Card/Card";
+import { SColumn } from "./Column.styled.js";
 export default function Column({ title, cards }) {
   return (
-    <div className="main__column column">
+    <SColumn className="main__column column">
       <div className="column__title">
         <p>{title}</p>
         </div>
@@ -23,6 +24,6 @@ export default function Column({ title, cards }) {
          
         </div>
       </div>
-    </div>
+    </SColumn>
   );
 }

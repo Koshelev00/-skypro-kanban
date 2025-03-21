@@ -7,6 +7,7 @@ import Main from './components/Main/Main.jsx'
 import PopExit from './components/popups/PopExit/PopExit.jsx'
 import React, { useState, useEffect } from 'react';
 
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   
@@ -26,6 +27,7 @@ export default function App() {
         <PopExit />
         <PopNewCard />
         <PopBrowse />
+        
         {/* <!-- pop-up end--> */}
 
         {loading ?  <><Header /> <p className="loud">Идёт загрузка...</p> </>: (
