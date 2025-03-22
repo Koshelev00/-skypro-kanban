@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 
 export const SMain = styled.main`
-    .container {
-        max-width: 1260px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 30px;
-    }
+    
     .main {
         width: 100%;
         background-color: #eaeef6;
@@ -41,10 +36,6 @@ export const SMain = styled.main`
             display: block;
         }
     }
-    @media screen and (max-width: 495px) {
-        .container {
-            width: 100%;
-            padding: 0 16px;
-        }
-    }
+        
+    
 `

@@ -12,12 +12,7 @@ export const SHeader = styled.header`
     border-left-color: #33399b;
     border-bottom-color: #33399b;
   }
-  .container {
-    max-width: 1260px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 30px;
-  }
+ 
 
   .header__block {
     height: 70px;
@@ -179,16 +174,6 @@ export const SHeader = styled.header`
     }
   }
 
-  @media screen and (max-width: 495px) {
-    .container {
-      width: 100%;
-      padding: 0 16px;
-    }
-  }
+  
 `;
-// const HeaderContainer = styled.div`
-//     max-width: 1260px;
-//     width: 100%;
-//     margin: 0 auto;
-//     padding: 0 30px;
-// `
+
