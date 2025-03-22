@@ -1,4 +1,4 @@
-// import '../../App.css'
+
 import Column from '../Column/Column'
 import { cardList } from '../../data.js';
 import {SMain} from './Main.styled.js'

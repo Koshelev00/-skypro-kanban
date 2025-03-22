@@ -1,5 +1,3 @@
-// import '../../App.css'
-// import PopUser from '../PopUser/PopUser'
 import { SHeader } from "./Header.styled";
 export default function Header() {
   return (

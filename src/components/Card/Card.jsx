@@ -1,4 +1,3 @@
-// import '../../App.css'
 import { SCard } from './Card.styled'
 export default function Card({title, date, topic, id}) {
     return (

@@ -1,4 +1,4 @@
-// import "../../App.css";
+
 import Card from "../Card/Card";
 import { SColumn } from "./Column.styled.js";
 export default function Column({ title, cards }) {

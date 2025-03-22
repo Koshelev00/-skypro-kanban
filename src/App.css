@@ -84,12 +84,12 @@ body {
   color: #FFFFFF;
 }
 
-.pop-user-set:target,
+/* .pop-user-set:target,
 .pop-exit:target,
 .pop-new-card:target,
 .pop-browse:target {
   display: block;
-}
+} */
 
 /* ._orange {
   background-color: #FFE4C2;
@@ -218,7 +218,7 @@ body {
   justify-content: space-between;
 }
 
-.pop-user-set__name {
+/* .pop-user-set__name {
   color: #000;
   font-size: 14px;
   font-weight: 500;
@@ -280,7 +280,7 @@ body {
 }
 .pop-user-set button a {
   color: #565EEF;
-}
+} */
 
 .pop-new-card {
   display: none;
@@ -719,7 +719,7 @@ body {
   display: none;
 }
 
-/* .header {
+.header {
   width: 100%;
   margin: 0 auto;
   background-color: #FFFFFF;
@@ -796,7 +796,7 @@ body {
   padding: 34px;
   text-align: center;
   z-index: 2;
-} */
+} 
 
 /* .main {
   width: 100%;

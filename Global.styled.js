@@ -1,6 +1,6 @@
-import  {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-export  const SGlobal = createGlobalStyle`
+export const SGlobal = createGlobalStyle`
 * {
     margin: 0;
     padding: 0;
@@ -53,5 +53,10 @@ body {
     background: #94a6be;
     color: #ffffff;
 }
-`
-;
+.pop-user-set:target,
+.pop-exit:target,
+.pop-new-card:target,
+.pop-browse:target {
+  display: block;
+}
+`;
