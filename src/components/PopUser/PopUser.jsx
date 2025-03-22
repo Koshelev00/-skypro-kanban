@@ -1,5 +1,3 @@
-// import '../../App.css'
-// import PopUserSet from '../popups/PopUserSet/PopUserSet.jsx'
 import { SPopUser } from './PopUser.styled.js'
 export default function PopUser() {
     return (        
