@@ -1,7 +1,8 @@
 import '../../App.css'
+import { SCalendar } from './Calendar.styled'
 export default function Calendar() {
     return (
-        <div className="pop-new-card__calendar calendar">
+        <SCalendar className="pop-new-card__calendar calendar">
         <p className="calendar__ttl subttl">Даты</p>									
         <div className="calendar__block">
           <div className="calendar__nav">
@@ -73,6 +74,6 @@ export default function Calendar() {
             <p className="calendar__p date-end">Выберите срок исполнения <span className="date-control"></span>.</p>
           </div>
         </div>
-      </div>
+      </SCalendar>
     )
 }
