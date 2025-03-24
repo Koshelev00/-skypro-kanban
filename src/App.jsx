@@ -4,7 +4,7 @@ import PopNewCard from "./components/PopNewCard/PopNewCard.jsx";
 import PopBrowse from "./components/PopBrowse/PopBrowse.jsx";
 import Main from "./components/Main/Main.jsx";
 import React, { useState, useEffect } from "react";
-import { SGlobal } from "../Global.styled.js";
+import { SGlobal } from "./Global.styled.js";
 
 
 export default function App() {

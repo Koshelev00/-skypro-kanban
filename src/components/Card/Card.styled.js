@@ -82,16 +82,16 @@ export const SCard = styled.div`
     color: #94a6be;
     letter-spacing: 0.2px;
   }
-    @keyframes card-animation {
-  0% {
-    height: 0;
-    opacity: 0;
+  @keyframes card-animation {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+    100% {
+      height: auto;
+      opacity: 1;
+    }
   }
-  100% {
-    height: auto;
-    opacity: 1;
-  }
-}
   @media screen and (max-width: 1200px) {
     .cards__card {
       width: 220px;
@@ -106,3 +106,15 @@ export const SCard = styled.div`
     }
   }
 `;
+
+export const cardTopic = (topic) => {
+  let Theme = "";
+  if (topic === "Web design") {
+    Theme = "_orange";
+  } else if (topic === "Research") {
+    Theme = "_green";
+  } else if (topic === "Copywriting") {
+    Theme = "_purple";
+  }
+  return Theme;
+};
