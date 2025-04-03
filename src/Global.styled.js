@@ -17,6 +17,12 @@ a:visited {
     text-decoration: none;
     cursor: pointer;
 }
+.subttl {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
 
 button,
 ._btn {
@@ -59,11 +65,26 @@ body {
 .pop-browse:target {
   display: block;
 }
+  h2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: -0.4px;
+  margin-bottom: 20px;
+}
   .loud {
   font-size: 38px;
   line-height: 12px;
   margin-top: 20%;
   margin-left: 45%;
+}
+   ._current {
+   font-weight: bold;
+  
+}
+   ._other-month {
+  opacity: 0;
 }
   .wrapper {
   max-width: 100%;

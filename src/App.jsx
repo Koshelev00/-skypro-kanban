@@ -5,6 +5,8 @@ import PopBrowse from "./components/PopBrowse/PopBrowse.jsx";
 import Main from "./components/Main/Main.jsx";
 import React, { useState, useEffect } from "react";
 import { SGlobal } from "./Global.styled.js";
+import PopUser from "./components/PopUser/PopUser.jsx";
+
 
 
 export default function App() {
@@ -24,9 +26,10 @@ export default function App() {
       <div className="wrapper">
         {/* <!-- pop-up start--> */}
 
-     
+        
         <PopNewCard />
         <PopBrowse />
+        <PopUser />
 
         {/* <!-- pop-up end--> */}
 

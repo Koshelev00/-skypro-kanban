@@ -1,41 +1,59 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const SMain = styled.main`
-    
-    .main {
-        width: 100%;
-        background-color: #eaeef6;
-    }
-    .main__block {
-        width: 100%;
-        margin: 0 auto;
-        padding: 25px 0 49px;
-    }
-    .main__content {
-        width: 100%;
-        display: flex;
-    }
-    .main__column {
-        width: 20%;
-        margin: 0 auto;
-        display: block;
-    } 
+export const StyledMain = styled.main`
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  background-color: #eaeef6;
+`;
 
-    @media screen and (max-width: 1200px) {
-        .main__block {
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 0 64px;
-        }
-        .main__content {
-            display: block;
-        }
-        .main__column {
-            width: 100%;
-            margin: 0 auto;
-            display: block;
-        }
-    }
+export const Container = styled.div`
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    padding: 0 16px;
+  }
+`;
+
+export const MainBlock = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px 0 49px;
+
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0 64px;
+  }
+`;
+
+export const MainContent = styled.div`
+  width: 100%;
+  display: flex;
+
+  @media screen and (max-width: 1200px) {
+    display: block;
+  }
+`;
+
+//     @media screen and (max-width: 1200px) {
+//         .main__block {
+//             width: 100%;
+//             margin: 0 auto;
+//             padding: 40px 0 64px;
+//         }
+//         .main__content {
+//             display: block;
+//         }
+//         .main__column {
+//             width: 100%;
+//             margin: 0 auto;
+//             display: block;
+//         }
+//     }
         
     
-`
+// `
