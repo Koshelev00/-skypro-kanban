@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import "../../App.css";
 import { SCalendar } from "./Calendar.styled";
 import { CalendarTtl } from "./Calendar.styled";
 import { CalendarP } from "./Calendar.styled";
@@ -72,11 +71,11 @@ export default function Calendar() {
     currentDate.getMonth() + 1,
     0
   );
-  const lastDayOfWeek = lastDayOfMonth.getDay(); // 0 (воскресенье) до 6 (суббота)
+  const lastDayOfWeek = lastDayOfMonth.getDay(); 
 
-  // Если месяц не заканчивается в воскресенье (day !== 0)
+  
   if (lastDayOfWeek !== 0) {
-    const daysToAdd = 7 - lastDayOfWeek; // Количество дней следующего месяца для добавления
+    const daysToAdd = 7 - lastDayOfWeek; 
     for (let i = 1; i <= daysToAdd; i++) {
       days.push({
         day: i,

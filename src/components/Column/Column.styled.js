@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CardsItem = styled.div`
   padding: 5px;
-  animation-name: card-animation;
-  animation-duration: 500ms;
-  animation-timing-function: linear;
+  // animation-name: card-animation;
+  // animation-duration: 500ms;
+  // animation-timing-function: linear;
 `;
 
 export const MainColumn = styled.div`
