@@ -1,51 +1,47 @@
 import "./App.css";
-import Header from "./components/Header/Header.jsx";
-import PopNewCard from "./components/PopNewCard/PopNewCard.jsx";
-import PopBrowse from "./components/PopBrowse/PopBrowse.jsx";
-import Main from "./components/Main/Main.jsx";
-import React, { useState, useEffect } from "react";
-import { SGlobal } from "./Global.styled.js";
-import PopUser from "./components/PopUser/PopUser.jsx";
+import AppRoutes from "./components/AppRoutes.jsx";
 
 
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  return <AppRoutes/>
+}
+//   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setLoading(false);
+//     }, 3000);
 
-    return () => clearTimeout(timer);
-  }, []);
+//     return () => clearTimeout(timer);
+//   }, []);
 
-  return (
-    <>
-      <SGlobal />
-      <div className="wrapper">
-        {/* <!-- pop-up start--> */}
+//   return (
+//     <>
+//       <SGlobal />
+//       <div className="wrapper">
+//         {/* <!-- pop-up start--> */}
 
         
-        <PopNewCard />
-        <PopBrowse />
-        <PopUser />
+//         <PopNewCard />
+//         <PopBrowse />
+//         <PopUser />
 
-        {/* <!-- pop-up end--> */}
+//         {/* <!-- pop-up end--> */}
 
-        {loading ? (
-          <>
-            <Header /> <p className="loud">Идёт загрузка...</p>{" "}
-          </>
-        ) : (
-          <>
-            <Header />
-            <Main />
-          </>
-        )}
-      </div>
+//         {loading ? (
+//           <>
+//             <Header /> <p className="loud">Идёт загрузка...</p>{" "}
+//           </>
+//         ) : (
+//           <>
+//             <Header />
+//             <Main />
+//           </>
+//         )}
+//       </div>
 
-      <script src="js/script.js"></script>
-    </>
-  );
-}
+//       <script src="js/script.js"></script>
+//     </>
+//   );
+// }
