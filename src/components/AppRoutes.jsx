@@ -42,7 +42,7 @@ function AppRoutes() {
         <Route path="/card/:id" element={<CardPage />} />
       </Route>
 
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="\*" element={<NotFoundPage />} />
     </Routes>
   );
 }
