@@ -1,9 +1,12 @@
 import * as S from "./Header.styled";
 import { useState } from "react";
 import PopUser from "../PopUser/PopUser";
+import PopNewCard from "../PopNewCard/PopNewCard"; 
 
 export default function Header() {
   const [showExitPopup, setShowExitPopup] = useState(false);
+  const [showNewCardPopup, setShowNewCardPopup] = useState(false);
+  
   return (
     <S.StyledHeader className="header">
       <S.Container className="container">
@@ -20,11 +23,15 @@ export default function Header() {
           </div>
           <S.HeaderNav className="header__nav">
             <S.HeaderButtonNew
-             className="header__btn-main-new _hover01"
-             id="btnMainNew"
-         >
-             <a href="#popNewCard">Создать новую задачу</a>
+              className="header__btn-main-new _hover01"
+              id="btnMainNew"
+              onClick={() => setShowNewCardPopup(true)}
+            >
+              Создать новую задачу
             </S.HeaderButtonNew>
+            {showNewCardPopup && (
+        <PopNewCard onClose={() => setShowNewCardPopup(false)} />
+      )}
             <S.HeaderUser
               href="#user-set-target"
               className="header__user _hover02"
@@ -35,7 +42,6 @@ export default function Header() {
               className="header__pop-user-set pop-user-set"
               id="user-set-target"
             >
-              {/* <!-- <a href="">x</a> --> */}
               <S.HeaderUserName className="pop-user-set__name">
                 Ivan Ivanov
               </S.HeaderUserName>
@@ -65,6 +71,8 @@ export default function Header() {
           </S.HeaderNav>
         </S.HeaderBlock>
       </S.Container>
+      
+      
     </S.StyledHeader>
   );
 }
