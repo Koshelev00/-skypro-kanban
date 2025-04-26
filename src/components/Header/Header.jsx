@@ -20,10 +20,10 @@ export default function Header() {
           </div>
           <S.HeaderNav className="header__nav">
             <S.HeaderButtonNew
-              className="header__btn-main-new _hover01"
-              id="btnMainNew"
-            >
-              <a href="#popNewCard">Создать новую задачу</a>
+             className="header__btn-main-new _hover01"
+             id="btnMainNew"
+         >
+             <a href="#popNewCard">Создать новую задачу</a>
             </S.HeaderButtonNew>
             <S.HeaderUser
               href="#user-set-target"

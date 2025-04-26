@@ -1,5 +1,5 @@
-import SignUp from "../SignUp/SignUp";
-import { SGlobal } from "..//../Global.styled";
+import SignUp from "../components/SignUp/SignUp";
+import { SGlobal } from "../Global.styled";
 function SignUpPage() {
   return (
     <>

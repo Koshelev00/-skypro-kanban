@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #EAEEF6;
+  background-color: #f3f4f6;
 `;
 
 export const Card = styled.div`
@@ -24,56 +24,45 @@ export const Title = styled.h2`
 `;
 
 export const Input = styled.input`
-   width: 100%;
-  padding: 12px;
-  margin-bottom: 8px;
-  border: 1px solid ${props => props.error ? '#ef4444' : '#d1d5db'};
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
   outline: none;
-  transition: border-color 0.3s;
-  
   &:focus {
-    border-color: ${props => props.error ? '#ef4444' : '#3b82f6'};
-    box-shadow: ${props => props.error 
-      ? '0 0 0 1px #F84D4D' 
-      : '0 0 0 1px #565EEF'};
+    border-color: #3b82f6;
+    box-shadow: 0 0 4px #3b82f6;
   }
 `;
 
 export const Button = styled.button`
   width: 100%;
-  background-color: ${props => props.disabled ? '#94A6BE' : '#565EEF'};
+  background-color: #3b82f6;
   color: white;
-  padding: 12px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+  cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 8px;
-  
-  
+  &:hover {
+    background-color: #2563eb;
+  }
 `;
+
 export const Text = styled.p`
   text-align: center;
   font-size: 14px;
-  color: #94A6BE66;
+  color: #6b7280;
   margin-top: 12px;
 `;
 
 export const Link = styled.a`
-  color: #94A6BE66;
-  text-decoration: underline;
+  color: #3b82f6;
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
-`;
-export const ErrorMessage = styled.div`
-  color: #F84D4D;
-  font-size: 14px;
-  margin: 8px 0 16px;
-  padding: 8px;
-  background-color: #fef2f2;
-  border-radius: 4px;
 `;

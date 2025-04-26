@@ -1,5 +1,5 @@
-import SignIn from "../SingIn/SignIn";
-import { SGlobal } from "..//../Global.styled";
+import SignIn from "../components/SignIn/SignIn";
+import { SGlobal } from "../Global.styled";
 function SignInPage({ setIsAuth }) {
   return (
     <>

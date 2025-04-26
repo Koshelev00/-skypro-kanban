@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom'
-import Main from '../Main/Main'
-import { LoadExpect } from '../Adition/Adition'
-import { SGlobal } from '..//../Global.styled'
-import Header from '../Header/Header'
+import Main from '../components/Main/Main'
+import { LoadExpect } from '../components/Adition/Adition'
+import { SGlobal } from '../Global.styled'
+import Header from '../components/Header/Header'
 
 function MainPage({ loading }) {
     return (
