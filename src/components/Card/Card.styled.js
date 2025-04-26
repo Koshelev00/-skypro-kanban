@@ -34,23 +34,40 @@ export const CardsGroup = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
-export const CardsTheme = styled.div`
+const topicclassName = {
+  "Web Design": {
+    background: "#FFE4C2",
+    color: "#FF6D00",
+  },
+  Research: {
+    background: "#B4FDD1",
+    color: "#06B16E",
+  },
+  Copywriting: {
+    background: "#E9D4FF",
+    color: "#9A48F1",
+  },
+  default: {
+    background: "#ffe4c2",
+    color: "#ff6d00",
+  },
+};
+export const CardTheme = styled.div`
   width: auto;
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
 
- 
-
+  background-color: ${({ $topic }) =>
+    topicclassName[$topic]?.background || topicclassName.default.background};
+  color: ${({ $topic }) =>
+    topicclassName[$topic]?.color || topicclassName.default.color};
   
 
-  p {
-    font-size: 10px;
-    font-weight: 600;
-    line-height: 10px;
-
-    
+    p {
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 10px;
   }
 `;
 
@@ -104,14 +121,3 @@ export const CardDate = styled.div`
   }
 `;
 
-export const cardTopic = (topic) => {
-  let Theme = "";
-  if (topic === "Web design") {
-    Theme = "_orange";
-  } else if (topic === "Research") {
-    Theme = "_green";
-  } else if (topic === "Copywriting") {
-    Theme = "_purple";
-  }
-  return Theme;
-};

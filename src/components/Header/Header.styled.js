@@ -51,7 +51,7 @@ export const HeaderButtonNew = styled.button`
   &:hover {
     background-color: #33399b;
   }
-    
+
   @media screen and (max-width: 495px) {
     .header__btn-main-new {
       z-index: 3;
@@ -202,7 +202,7 @@ export const HeaderUserTheme = styled.div`
   }
 `;
 
-export const Container= styled.div`
+export const Container = styled.div`
 @media screen and (max-width: 495px) {
     width: 100%;
     padding: 0 16px;

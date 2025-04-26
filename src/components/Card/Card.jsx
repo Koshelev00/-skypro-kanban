@@ -1,34 +1,29 @@
-import {
-  cardTopic,
-  CardsCard,
-  CardsGroup,
-  CardsTheme,
-  CardButton,
-  CardContent,
-  CardTitle,
-  CardDate,
-} from "./Card.styled";
-import {} from "./Card.styled";
+import * as S from "./Card.styled";
+
+
+
 export default function Card({ title, date, topic, id }) {
+
+
   return (
-    <CardsCard className="cards__card card" id={id}>
-      <CardsGroup className="card__group">
-        <CardsTheme className={`card__theme ${cardTopic(topic)}`}>
-          <p className={cardTopic(topic)}>{topic}</p>
-        </CardsTheme>
+    <S.CardsCard id={id}>
+      <S.CardsGroup>
+      <S.CardTheme $topic={topic}>
+        <p>{topic}</p>
+      </S.CardTheme>
         <a href="#popBrowse" target="_self">
-          <CardButton className="card__btn">
+          <S.CardButton>
             <div></div>
             <div></div>
             <div></div>
-          </CardButton>
+          </S.CardButton>
         </a>
-      </CardsGroup>
-      <CardContent className="card__content">
+      </S.CardsGroup>
+      <S.CardContent>
         <a href="" target="_blank">
-          <CardTitle className="card__title">{title}</CardTitle>
+          <S.CardTitle>{title}</S.CardTitle>
         </a>
-        <CardDate className="card__date">
+        <S.CardDate>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="13"
@@ -58,8 +53,8 @@ export default function Card({ title, date, topic, id }) {
             </defs>
           </svg>
           <p>{date}</p>
-        </CardDate>
-      </CardContent>
-    </CardsCard>
+        </S.CardDate>
+      </S.CardContent>
+    </S.CardsCard>
   );
 }

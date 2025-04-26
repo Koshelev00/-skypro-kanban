@@ -110,6 +110,7 @@ export const FormSubTtl = styled.label`
 export const FormNewInput = styled.input`
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 10px;
     outline: none;
     padding: 14px;
     background: transparent;
