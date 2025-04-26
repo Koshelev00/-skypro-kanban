@@ -1,9 +1,10 @@
 import Calendar from "../Calendar/Calendar";
 import * as S from "../PopNewCard/PopNewCard.styled";
+import React from "react";
 
-export default function PopNewCard() {
+const PopNewCard = React.forwardRef((ref) =>  {
   return (
-    <S.PopNewCard id="popNewCard">
+    <S.PopNewCard ref={ref}>
       <S.PopNewCardContainer>
         <S.PopNewCardBlock>
           <S.PopNewCardContent>
@@ -55,4 +56,5 @@ export default function PopNewCard() {
       </S.PopNewCardContainer>
     </S.PopNewCard>
   );
-}
+});
+export default PopNewCard;

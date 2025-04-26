@@ -1,78 +1,84 @@
 import * as S from "./Header.styled";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PopUser from "../PopUser/PopUser";
-import PopNewCard from "../PopNewCard/PopNewCard"; 
+import PopNewCard from "../PopNewCard/PopNewCard";
+import { useEffect } from "react";
+
+function useClickOutside(ref, callback) {
+  useEffect(() => {
+    const handleClick = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [ref, callback]);
+}
 
 export default function Header() {
   const [showExitPopup, setShowExitPopup] = useState(false);
   const [showNewCardPopup, setShowNewCardPopup] = useState(false);
-  
+  const [showHeaderUserPop, setShowHeaderUserPop] = useState(false);
+  const headerUserPopRef = useRef();
+  const newCardPopupRef = useRef();
+
+  useClickOutside(headerUserPopRef, () => {
+    setShowHeaderUserPop(false);
+  });
+  useClickOutside(newCardPopupRef, () => {
+    setShowNewCardPopup(false);
+  });
+
   return (
-    <S.StyledHeader className="header">
-      <S.Container className="container">
-        <S.HeaderBlock className="header__block">
-          <S.HeaderLogo className="header__logo _show _light">
+    <S.StyledHeader>
+      <S.Container>
+        <S.HeaderBlock>
+          <S.HeaderLogo>
             <a href="" target="_self">
               <img src={"/logo.png"} alt="logo"></img>
             </a>
           </S.HeaderLogo>
-          <div className="header__logo _dark">
+          <div>
             <a href="" target="_self">
               <img src={"/logo_dark.png"} alt="logo"></img>
             </a>
           </div>
-          <S.HeaderNav className="header__nav">
-            <S.HeaderButtonNew
-              className="header__btn-main-new _hover01"
-              id="btnMainNew"
-              onClick={() => setShowNewCardPopup(true)}
-            >
+          <S.HeaderNav>
+            <S.HeaderButtonNew onClick={() => setShowNewCardPopup(true)}>
               Создать новую задачу
             </S.HeaderButtonNew>
             {showNewCardPopup && (
-        <PopNewCard onClose={() => setShowNewCardPopup(false)} />
-      )}
-            <S.HeaderUser
-              href="#user-set-target"
-              className="header__user _hover02"
-            >
+          <PopNewCard 
+            ref={newCardPopupRef} 
+            onClose={() => setShowNewCardPopup(false)}
+          />
+        )}
+            <S.HeaderUser onClick={() => setShowHeaderUserPop(true)}>
               Ivan Ivanov
             </S.HeaderUser>
-            <S.HeaderUserPop
-              className="header__pop-user-set pop-user-set"
-              id="user-set-target"
-            >
-              <S.HeaderUserName className="pop-user-set__name">
-                Ivan Ivanov
-              </S.HeaderUserName>
-              <S.HeaderUserMail className="pop-user-set__mail">
-                ivan.ivanov@gmail.com
-              </S.HeaderUserMail>
-              <S.HeaderUserTheme className="pop-user-set__theme">
-                <p>Темная тема</p>
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  name="checkbox"
-                ></input>
-              </S.HeaderUserTheme>
-              <button
-                type="button"
-                className="_hover03"
-                onClick={() => setShowExitPopup(true)}
-              >
-                Выйти
-              </button>
-
-              {showExitPopup && (
-                <PopUser onClose={() => setShowExitPopup(false)} />
-              )}
-            </S.HeaderUserPop>
+            {showHeaderUserPop && (
+              <S.HeaderUserPop ref={headerUserPopRef}>
+                <S.HeaderUserName>Ivan Ivanov</S.HeaderUserName>
+                <S.HeaderUserMail>ivan.ivanov@gmail.com</S.HeaderUserMail>
+                <S.HeaderUserTheme>
+                  <p>Темная тема</p>
+                  <input type="checkbox" name="checkbox"></input>
+                </S.HeaderUserTheme>
+                <button
+                  type="button"
+                  onClick={() => setShowExitPopup(true)}
+                >
+                  Выйти
+                </button>
+                {showExitPopup && (
+                  <PopUser onClose={() => setShowExitPopup(false)} />
+                )}
+              </S.HeaderUserPop>
+            )}
           </S.HeaderNav>
         </S.HeaderBlock>
       </S.Container>
-      
-      
     </S.StyledHeader>
   );
 }
