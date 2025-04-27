@@ -1,24 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import PopExit from '../components/PopExit/PopExit';
+import { useNavigate } from 'react-router-dom'
+import PopExit from '../components/PopExit/PopExit'
 
 export default function ExitPage({ setIsAuth }) {
   const navigate = useNavigate();
-
-  // Закрытие попапа
-  const handleClose = () => navigate(-1); 
-
-  // Подтверждение выхода
+  console.log("ExitPage received setIsAuth:", typeof setIsAuth); // должно быть "function"
+  // Функция должна быть объявлена и передана
   const handleConfirm = () => {
-    console.log('Logout confirmed!');
+    console.log("Logout confirmed!");
     setIsAuth(false);
     localStorage.removeItem('authToken');
     navigate('/signin');
   };
-
+ 
   return (
     <PopExit 
-      onClose={handleClose}   // Передаем оба пропса
-      onConfirm={handleConfirm} 
+    onConfirm={handleConfirm} // <- Передаем правильно
+    onClose={() => navigate(-1)}
     />
-  );
+  )
 }

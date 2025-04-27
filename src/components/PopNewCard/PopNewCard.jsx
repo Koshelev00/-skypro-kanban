@@ -2,7 +2,7 @@ import Calendar from "../Calendar/Calendar";
 import * as S from "../PopNewCard/PopNewCard.styled";
 import React from "react";
 
-const PopNewCard = React.forwardRef((ref) =>  {
+const PopNewCard = React.forwardRef((props, ref) => {
   return (
     <S.PopNewCard ref={ref}>
       <S.PopNewCardContainer>

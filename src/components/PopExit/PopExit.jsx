@@ -1,6 +1,8 @@
 import * as S from "./PopExit.styled.js";
 
 export default function PopExit({ onClose, onConfirm }) {
+  console.log('Received props:', { onClose, onConfirm });
+
   return (
     <S.PopExit className="pop-exit">
       <S.PopExitContainer className="pop-exit__container">
@@ -13,7 +15,11 @@ export default function PopExit({ onClose, onConfirm }) {
           <div className="pop-exit__form"> {/* Было <form> */}
       <S.PopExitFormGroup>
         <S.PopExitYes>
-          <S.Button onClick={onConfirm}>Да, выйти</S.Button> {/* Не type="submit"! */}
+          <S.Button   onClick={(e) => {
+          e.preventDefault()
+          onConfirm() // Проверяем наличие функции
+        }}>
+    Да, выйти</S.Button> {/* Не type="submit"! */}
         </S.PopExitYes>
         <S.PopExitNo>
           <S.Button onClick={onClose}>Нет, остаться</S.Button>
