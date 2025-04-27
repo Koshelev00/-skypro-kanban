@@ -1,7 +1,7 @@
-// import '../../App.css'
+
 import Column from '../Column/Column'
 import { cardList } from '../../data.js';
-import {SMain} from './Main.styled.js'
+import {StyledMain, Container, MainBlock, MainContent } from './Main.styled.js'
 
 export default function Main() {
 const columns = {
@@ -13,16 +13,16 @@ const columns = {
 };
 
 return (
-  <SMain className="main">
-      <div className="container">
-          <div className="main__block">
-              <div className="main__content">
+  <StyledMain className="main">
+      <Container className="container">
+          <MainBlock className="main__block">
+              <MainContent className="main__content">
                   {Object.keys(columns).map((title) => (
                       <Column key={title} title={title} cards={columns[title]} />
                   ))}
-              </div>
-          </div>
-      </div>
-  </SMain>
+              </MainContent>
+          </MainBlock>
+      </Container>
+  </StyledMain>
 );
 }
