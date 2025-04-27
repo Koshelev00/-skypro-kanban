@@ -14,38 +14,39 @@ import { Route, Routes } from 'react-router-dom'
 import NewCardPage from './Pages/newCardPage'
 
 function AppRoutes() {
-    const [isAuth, setIsAuth] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const [isAuth, setIsAuth] = useState(false);
+    const [loading, setLoading] = useState(true);
+  
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 1000)
-    }, [loading])
-    
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }, [loading]);
+  
     return (
-        <Routes>
-            <Route element={<PrivateRoute isAuth={isAuth} />}>
-                <Route path="/" element={<MainPage />}>
-                    <Route
-                        path="/exit"
-                        element={<ExitPage setIsAuth={setIsAuth} />}
-                    />
-                    <Route path="/card/:id" element={<CardPage />} />
-                    <Route path="/newcard" element={<NewCardPage />} />
-                </Route>
-            </Route>
-            <Route
-                path="/signIn"
-                element={<SignInPage setIsAuth={setIsAuth} />}
-            />
-            <Route
-                path="/signUp"
-                element={<SignUpPage setIsAuth={setIsAuth} />}
-            />
-
-            <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-    )
-}
-
+      <Routes>
+        {/* Главный защищенный маршрут */}
+        <Route element={<PrivateRoute isAuth={isAuth} />}>
+          <Route path="/" element={<MainPage />}>
+            {/* Дочерние маршруты используют ОТНОСИТЕЛЬНЫЕ пути */}
+            <Route path="exit" element={<ExitPage setIsAuth={setIsAuth} />} />
+            <Route path="card/:id" element={<CardPage />} />
+            <Route path="newcard" element={<NewCardPage />} />
+          </Route>
+        </Route>
+  
+        {/* Публичные маршруты */}
+        <Route
+          path="/signin"
+          element={<SignInPage setIsAuth={setIsAuth} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUpPage setIsAuth={setIsAuth} />}
+        />
+  
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    );
+  }
 export default AppRoutes

@@ -599,7 +599,7 @@ body {
   justify-content: space-between;
   margin-bottom: 18px;
 } */
-.pop-browse__ttl {
+/* .pop-browse__ttl {
   color: #000;
   font-size: 20px;
   font-weight: 600;
@@ -609,13 +609,13 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-}
-.pop-browse__form {
+} */
+/* .pop-browse__form {
   max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
-}
+} */
 .pop-browse__btn-browse, .pop-browse__btn-edit {
   display: flex;
   flex-wrap: wrap;

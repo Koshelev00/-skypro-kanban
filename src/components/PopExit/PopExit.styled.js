@@ -45,7 +45,7 @@ export const PopExitBlock = styled.div`
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
 `;
 
-export const PopExitTll = styled.div`
+export const PopExitTtl = styled.div`
   text-align: center;
   font-size: 20px;
   font-weight: 700;

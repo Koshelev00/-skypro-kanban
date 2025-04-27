@@ -1,28 +1,40 @@
-
 import Column from '../Column/Column'
 import { cardList } from '../../data.js';
 import {StyledMain, Container, MainBlock, MainContent } from './Main.styled.js'
 
-export default function Main() {
-const columns = {
-  'БЕЗ СТАТУСА': cardList.filter(card => card.status === 'Без статуса'),
-  'НУЖНО СДЕЛАТЬ': cardList.filter(card => card.status === 'Нужно сделать'),
-  'В РАБОТЕ': cardList.filter(card => card.status === 'В работе'),
-  'Тестирование': cardList.filter(card => card.status === 'Тестирование'),
-  'ГОТОВО': cardList.filter(card => card.status === 'Готово'),
+const STATUSES = {
+  NO_STATUS: 'Без статуса',
+  TODO: 'Нужно сделать',
+  IN_PROGRESS: 'В работе',
+  TESTING: 'Тестирование',
+  DONE: 'Готово'
 };
 
-return (
-  <StyledMain className="main">
+export default function Main() {
+  const columns = Object.values(STATUSES).reduce((acc, status) => {
+    acc[status] = cardList.filter(card => card.status === status);
+    return acc;
+  }, {});
+
+  if (!cardList?.length) {
+    return <div>Задачи не найдены</div>;
+  }
+
+  return (
+    <StyledMain className="main">
       <Container className="container">
-          <MainBlock className="main__block">
-              <MainContent className="main__content">
-                  {Object.keys(columns).map((title) => (
-                      <Column key={title} title={title} cards={columns[title]} />
-                  ))}
-              </MainContent>
-          </MainBlock>
+        <MainBlock className="main__block">
+          <MainContent className="main__content">
+            {Object.entries(columns).map(([status, cards]) => (
+              <Column 
+                key={status}
+                title={status}
+                cards={cards}
+              />
+            ))}
+          </MainContent>
+        </MainBlock>
       </Container>
-  </StyledMain>
-);
+    </StyledMain>
+  );
 }

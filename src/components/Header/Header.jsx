@@ -1,6 +1,6 @@
 import * as S from "./Header.styled";
 import { useState, useRef } from "react";
-import PopUser from "../PopUser/PopUser";
+import PopUser from "../PopExit/PopExit";
 import PopNewCard from "../PopNewCard/PopNewCard";
 import { useEffect } from "react";
 
