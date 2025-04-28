@@ -12,6 +12,7 @@ import { Route, Routes } from 'react-router-dom'
 
 
 import NewCardPage from './Pages/newCardPage'
+import PopBrowsePage from './Pages/PopBrowsePage'
 
 function AppRoutes() {
     const [isAuth, setIsAuth] = useState(false);
@@ -32,6 +33,7 @@ function AppRoutes() {
             <Route path="exit" element={<ExitPage setIsAuth={setIsAuth} />} />
             <Route path="card/:id" element={<CardPage />} />
             <Route path="newcard" element={<NewCardPage />} />
+            <Route path="edit" element={<PopBrowsePage/>} />
           </Route>
         </Route>
   

@@ -1,9 +1,10 @@
 import * as S from "./Card.styled";
+import { useState, } from "react";
 
 
 
 export default function Card({ title, date, topic, id }) {
-
+ const [showPopBrowse, setShowPopBrowse] = useState(false);
 
   return (
     <S.CardsCard id={id}>
@@ -11,13 +12,18 @@ export default function Card({ title, date, topic, id }) {
       <S.CardTheme $topic={topic}>
         <p>{topic}</p>
       </S.CardTheme>
-        <a href="#popBrowse" target="_self">
-          <S.CardButton>
+        <a href="#" target="_self">
+          <S.CardButton onClick={() => setShowPopBrowse(true)}>
             <div></div>
             <div></div>
             <div></div>
           </S.CardButton>
         </a>
+        {showPopBrowse && (
+          <PopNewCard             
+            onClose={() => setShowPopBrowse(false)}
+          />
+        )}
       </S.CardsGroup>
       <S.CardContent>
         <a href="" target="_blank">
