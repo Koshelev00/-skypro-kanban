@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SCalendar = styled.div`
+export const Calendar = styled.div`
   width: 182px;
   margin-bottom: 20px;
   @media screen and (max-width: 660px) {

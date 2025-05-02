@@ -1,15 +1,15 @@
 import Card from "../Card/Card";
-import { CardsItem, MainColumn, ColumnTitle, Cards } from "./Column.styled.js";
+import * as S from "./Column.styled.js";
 export default function Column({ title, cards }) {
   return (
-    <MainColumn className="main__column column">
-      <ColumnTitle className="column__title">
+    <S.MainColumn >
+      <S.ColumnTitle >
         <p>{title}</p>
-      </ColumnTitle>
-      <Cards className="cards">
-        <CardsItem className="cards__item">
+      </S.ColumnTitle>
+      <S.Cards>
+        <S.CardsItem >
           {cards.map((card) => (
-            <CardsItem className="cards__item" key={card.id}>
+            <S.CardsItem  key={card.id}>
               <Card
                 id={card.id}
                 topic={card.topic}
@@ -17,10 +17,10 @@ export default function Column({ title, cards }) {
                 status={card.status}
                 date={card.date}
               />
-            </CardsItem>
+            </S.CardsItem>
           ))}
-        </CardsItem>
-      </Cards>
-    </MainColumn>
+        </S.CardsItem>
+      </S.Cards>
+    </S.MainColumn>
   );
 }
