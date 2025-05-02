@@ -5,7 +5,7 @@ import Calendar from '../Calendar/Calendar'
 const PopBrowse = ({id, onClose, topic}) => {
   return (
     <S.PopBrowse id={id}>
-      {/* <S.PopBrowseContainer> */}
+      <S.PopBrowseContainer>
         <S.PopBrowseBlock>
           <S.PopBrowseContent>
             <S.PopBrowseTopBlock >
@@ -95,7 +95,7 @@ const PopBrowse = ({id, onClose, topic}) => {
             </div>
           </S.PopBrowseContent>
         </S.PopBrowseBlock>
-      {/* </S.PopBrowseContainer> */}
+      </S.PopBrowseContainer>
       </S.PopBrowse>
   );
 };
