@@ -581,8 +581,8 @@ body {
 }
 .pop-browse__content {
   display: block;
-  text-align: left; */
-/* } */
+  text-align: left; 
+}
 .pop-browse__content .categories__theme {
   opacity: 1;
 }
@@ -592,7 +592,7 @@ body {
 }
 .pop-browse__content .theme-top {
   display: block;
-}
+} */
 /* .pop-browse__top-block {
   display: flex;
   align-items: center;

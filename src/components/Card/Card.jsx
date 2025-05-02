@@ -1,5 +1,6 @@
 import * as S from "./Card.styled";
 import { useState, } from "react";
+import PopBrowse from "../PopBrowse/PopBrowse";
 
 
 
@@ -20,7 +21,9 @@ export default function Card({ title, date, topic, id }) {
           </S.CardButton>
         </a>
         {showPopBrowse && (
-          <PopNewCard             
+          <PopBrowse  id={id}
+          topic={topic}
+                      
             onClose={() => setShowPopBrowse(false)}
           />
         )}
