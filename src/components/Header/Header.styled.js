@@ -36,7 +36,7 @@ export const HeaderButtonNew = styled.button`
   width: 178px;
   height: 30px;
   border-radius: 4px;
-  background-color: #565eef;
+  background-color:#565EEF;
   color: #ffffff;
   border: none;
   font-size: 14px;
@@ -48,9 +48,9 @@ export const HeaderButtonNew = styled.button`
     color: #ffffff;
   }
 
-  &:hover {
-    background-color: #33399b;
-  }
+  // &:hover {
+  //   background-color:rgb(28, 60, 201);
+  // }
 
   @media screen and (max-width: 495px) {
     .header__btn-main-new {
@@ -77,14 +77,14 @@ export const HeaderUser = styled.a`
   line-height: 20px;
   color: #565eef;
 
-  &:hover {
-    color: #33399b;
-  }
+  // &:hover {
+  //   color: #33399b;
+  // }
 
-  &:hover::after {
-    border-left-color: #33399b;
-    border-bottom-color: #33399b;
-  }
+  // &:hover::after {
+  //   border-left-color: #33399b;
+  //   border-bottom-color: #33399b;
+  // }
 
   &::after {
     content: "";
@@ -123,7 +123,7 @@ export const HeaderUserPop = styled.div`
     border: 1px solid #565eef;
 
     &:hover {
-      background-color: #33399b;
+      background-color: #565EEF;
       color: #ffffff;
     }
 
@@ -203,6 +203,10 @@ export const HeaderUserTheme = styled.div`
 `;
 
 export const Container = styled.div`
+ max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
 @media screen and (max-width: 495px) {
     width: 100%;
     padding: 0 16px;

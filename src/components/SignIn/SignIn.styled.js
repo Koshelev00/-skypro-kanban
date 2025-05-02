@@ -32,14 +32,14 @@ export const Input = styled.input`
   font-size: 16px;
   outline: none;
   &:focus {
-    border-color: #3b82f6;
+    border-color: #565eef;
     box-shadow: 0 0 4px #3b82f6;
   }
 `;
 
 export const Button = styled.button`
   width: 100%;
-  background-color: #3b82f6;
+  background-color: #565EEF;
   color: white;
   padding: 10px;
   border: none;
@@ -47,9 +47,7 @@ export const Button = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-  &:hover {
-    background-color: #2563eb;
-  }
+ 
 `;
 
 export const Text = styled.p`
@@ -60,7 +58,7 @@ export const Text = styled.p`
 `;
 
 export const Link = styled.a`
-  color: #3b82f6;
+  color: #565EEF;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
