@@ -1,11 +1,12 @@
 import * as S from "./Card.styled";
-import { useState, } from "react";
-import PopBrowse from "../PopBrowse/PopBrowse";
+
+
+import { Link } from 'react-router-dom'
 
 
 
 export default function Card({ title, date, topic, id }) {
- const [showPopBrowse, setShowPopBrowse] = useState(false);
+ 
 
   return (
     <S.CardsCard id={id}>
@@ -13,20 +14,15 @@ export default function Card({ title, date, topic, id }) {
       <S.CardTheme $topic={topic}>
         <p>{topic}</p>
       </S.CardTheme>
-        <a href="#" target="_self">
-          <S.CardButton onClick={() => setShowPopBrowse(true)}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </S.CardButton>
-        </a>
-        {showPopBrowse && (
-          <PopBrowse  id={id}
-          topic={topic}
-                      
-            onClose={() => setShowPopBrowse(false)}
-          />
-        )}
+      <Link to={`/card/${id}`} target="_self">
+                            <S.CardButton>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </S.CardButton>
+       </Link>
+        
+     
       </S.CardsGroup>
       <S.CardContent>
         <a href="" target="_blank">
