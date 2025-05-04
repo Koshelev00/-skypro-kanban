@@ -1,8 +1,12 @@
 import * as S from "./PopExit.styled.js";
+import { useNavigate } from 'react-router-dom'
+export default function PopExit({ onClose}) {
 
-export default function PopExit({ onClose, onConfirm }) {
-  console.log('Received props:', { onClose, onConfirm });
-
+  const navigate = useNavigate();  
+  const handleConfirm = () => {
+    localStorage.removeItem('authToken');
+    navigate('/signin');
+  };
   return (
     <S.PopExit className="pop-exit">
       <S.PopExitContainer className="pop-exit__container">
@@ -11,15 +15,15 @@ export default function PopExit({ onClose, onConfirm }) {
             <h2>Выйти из аккаунта?</h2>
           </S.PopExitTtl>
           
-          {/* Заменили форму на div для избежания submit */}
-          <div className="pop-exit__form"> {/* Было <form> */}
+      
+          <div className="pop-exit__form"> 
       <S.PopExitFormGroup>
         <S.PopExitYes>
           <S.Button   onClick={(e) => {
           e.preventDefault()
-          onConfirm() // Проверяем наличие функции
+          handleConfirm() 
         }}>
-    Да, выйти</S.Button> {/* Не type="submit"! */}
+    Да, выйти</S.Button> 
         </S.PopExitYes>
         <S.PopExitNo>
           <S.Button onClick={onClose}>Нет, остаться</S.Button>

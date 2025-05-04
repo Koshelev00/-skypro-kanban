@@ -64,3 +64,26 @@ export const Link = styled.a`
     text-decoration: underline;
   }
 `;
+export const ErrorText = styled.p`
+    font-family: 'Roboto';
+    line-height: 150%;
+    text-align: center;
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 7px;
+`
+
+export const LinkText = styled.span`
+    color: #6b7280;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+        `
+        export const Form = styled.form`
+    width: 100%;
+`
+        export const InputForm = styled.div`
+    display: flex;
+    flex-direction:column;
+    gap: 7px;
+    `

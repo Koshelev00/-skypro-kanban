@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 
 import MainPage from './Pages/MainPage'
 import SignInPage from './Pages/SignInPage'
@@ -13,17 +13,10 @@ import { Route, Routes } from 'react-router-dom'
 
 import NewCardPage from './Pages/newCardPage'
 import PopBrowsePage from './Pages/PopBrowsePage'
+import { getToken } from './services/auth'
 
 function AppRoutes() {
-    const [isAuth, setIsAuth] = useState(false);
-    const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }, [loading]);
-  
+  const [isAuth, setIsAuth] = useState(!!getToken())
     return (
       <Routes>
         {/* Главный защищенный маршрут */}
