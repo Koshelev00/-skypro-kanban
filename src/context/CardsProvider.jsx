@@ -8,7 +8,7 @@ dayjs.extend(customParseFormat);
 
 export const CardsProvider = ({ children }) => {
     const [cards, setCards] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading] = useState(false)
     const [error, setError] = useState('')
     const { user } = useContext(AuthContext)
 
@@ -22,7 +22,7 @@ export const CardsProvider = ({ children }) => {
             }
         }
         loadCards()
-    }, [])
+    }, [user.token])
 
     const addNewCard = async ({ card }) => {
       const isoDate = dayjs(card?.date, 'DD.MM.YYYY').toISOString()

@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import PopUser from "../PopExit/PopExit";
 import PopNewCard from "../PopNewCard/PopNewCard";
 import { useEffect } from "react";
+import { getToken } from '../../services/auth'
 
 function useClickOutside(ref, callback) {
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function Header() {
   const [showHeaderUserPop, setShowHeaderUserPop] = useState(false);
   const headerUserPopRef = useRef();
   const newCardPopupRef = useRef();
-
+  const [user] = useState(getToken())
   useClickOutside(headerUserPopRef, () => {
     setShowHeaderUserPop(false);
   });
@@ -55,12 +56,12 @@ export default function Header() {
           />
         )}
             <S.HeaderUser onClick={() => setShowHeaderUserPop(true)}>
-              Ivan Ivanov
+            {user ? getToken().name : ''}
             </S.HeaderUser>
             {showHeaderUserPop && (
               <S.HeaderUserPop ref={headerUserPopRef}>
-                <S.HeaderUserName>Ivan Ivanov</S.HeaderUserName>
-                <S.HeaderUserMail>ivan.ivanov@gmail.com</S.HeaderUserMail>
+                <S.HeaderUserName>   {getToken().name ? getToken().name : ''}</S.HeaderUserName>
+                <S.HeaderUserMail>   {getToken().login ? getToken().login : ''}</S.HeaderUserMail>
                 <S.HeaderUserTheme>
                   <p>Темная тема</p>
                   <input type="checkbox" name="checkbox"></input>
