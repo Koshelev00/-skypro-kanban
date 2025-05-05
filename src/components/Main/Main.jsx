@@ -1,28 +1,38 @@
-
 import Column from '../Column/Column'
-import { cardList } from '../../data.js';
-import {StyledMain, Container, MainBlock, MainContent } from './Main.styled.js'
+import * as S from './Main.styled'
+import { useContext } from 'react'
+import { CardsContext } from '../../context/CardsContext'
+
+const columnList = [
+    'Без статуса',
+    'Нужно сделать',
+    'in-progress',
+    'Тестирование',
+    'Готово',
+]
 
 export default function Main() {
-const columns = {
-  'БЕЗ СТАТУСА': cardList.filter(card => card.status === 'Без статуса'),
-  'НУЖНО СДЕЛАТЬ': cardList.filter(card => card.status === 'Нужно сделать'),
-  'В РАБОТЕ': cardList.filter(card => card.status === 'В работе'),
-  'Тестирование': cardList.filter(card => card.status === 'Тестирование'),
-  'ГОТОВО': cardList.filter(card => card.status === 'Готово'),
-};
+    const { cards } = useContext(CardsContext)
 
-return (
-  <StyledMain className="main">
-      <Container className="container">
-          <MainBlock className="main__block">
-              <MainContent className="main__content">
-                  {Object.keys(columns).map((title) => (
-                      <Column key={title} title={title} cards={columns[title]} />
-                  ))}
-              </MainContent>
-          </MainBlock>
-      </Container>
-  </StyledMain>
-);
+    return (
+        <S.Main>
+            <S.Container>
+                <S.MainBlock>
+                    <S.MainContent>
+                        {columnList.map((column) => {
+                            return (
+                                <Column
+                                    title={column}
+                                    key={column}
+                                    cards={cards.filter((card) => {
+                                        return card.status === column
+                                    })}
+                                />
+                            )
+                        })}
+                    </S.MainContent>
+                </S.MainBlock>
+            </S.Container>
+        </S.Main>
+    )
 }
