@@ -39,13 +39,13 @@ const AuthForm = ({ isSignUp }) => {
         }
         if (!formData.login.trim()) {
             newErrors.login = true
-            setError('Заполните все поля')
+            setError('Поля не должны быть пустыми')
             isValid = false
         }
         if (!formData.password.trim()) {
             newErrors.password = true
             setError(
-                'Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.'
+                'Поля не должны быть пустыми'
             )
             isValid = false
         }
