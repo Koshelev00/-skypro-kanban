@@ -5,20 +5,29 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f3f4f6;
+
+background: rgb(229, 229, 229);
 `;
 
 export const Card = styled.div`
-  background: white;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 350px;
+ width: 368px;
+height: 329px;
+// display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: flex-start;
+gap: 10;
+padding: 50px 60px 50px 60px;
+box-sizing: border-box;
+border: 0.7px solid rgb(212, 219, 229);
+border-radius: 10px;
+box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+background: rgb(255, 255, 255);
 `;
 
 export const Title = styled.h2`
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 16px;
 `;
@@ -31,9 +40,19 @@ export const Input = styled.input`
   border-radius: 8px;
   font-size: 16px;
   outline: none;
+  
   &:focus {
     border-color: #565eef;
     box-shadow: 0 0 4px #3b82f6;
+  }
+&::placeholder {
+ color: rgb(148, 166, 190);
+font-family: Roboto;
+font-size: 14px;
+font-weight: 400;
+line-height: 150%;
+letter-spacing: -2%;
+text-align: left;
   }
 `;
 
@@ -47,14 +66,19 @@ export const Button = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  height: 30px;
  
 `;
 
 export const Text = styled.p`
-  text-align: center;
-  font-size: 14px;
-  color: #6b7280;
-  margin-top: 12px;
+ color: rgba(148, 166, 190, 0.4);
+font-family: Roboto;
+font-size: 14px;
+font-weight: 400;
+line-height: 150%;
+letter-spacing: -1%;
+text-align: center;
+  margin-top: 20px;
 `;
 
 export const Link = styled.a`
@@ -70,20 +94,24 @@ export const ErrorText = styled.p`
     text-align: center;
     font-size: 12px;
     color: #6b7280;
-    margin-top: 7px;
+    margin-top: 14px;
 `
 
 export const LinkText = styled.span`
-    color: #6b7280;
-    text-decoration: underline;
-    &:hover {
-        text-decoration: underline;
-        `
-        export const Form = styled.form`
-    width: 100%;
+  color: rgba(148, 166, 190, 0.4);
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+  etter-spacing: -1%;
+  text-align: center;
+  text-decoration: underline;
 `
-        export const InputForm = styled.div`
-    display: flex;
-    flex-direction:column;
-    gap: 7px;
-    `
+export const Form = styled.form`
+  width: 100%;
+`
+export const InputForm = styled.div`
+  display: flex;
+  flex-direction:column;
+  gap: 7px;
+`
