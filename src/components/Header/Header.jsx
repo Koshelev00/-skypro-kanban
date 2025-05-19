@@ -1,85 +1,91 @@
-import * as S from "./Header.styled";
-import { useState, useRef } from "react";
-import PopUser from "../PopExit/PopExit";
-import PopNewCard from "../PopNewCard/PopNewCard";
-import { useEffect } from "react";
+import { Link } from 'react-router-dom'
+import * as S from './Header.styled'
+import { useNavigate } from 'react-router-dom'
+import { useState, useContext } from 'react'
 import { getToken } from '../../services/auth'
+import { ThemeContext } from '../../context/ThemeContext'
+import { useTheme } from '../../context/ThemeProvider'
+import { lightTheme, darkTheme } from '../../themes'
 
-function useClickOutside(ref, callback) {
-  useEffect(() => {
-    const handleClick = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        callback();
-      }
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [ref, callback]);
-}
 
 export default function Header() {
-  const [showExitPopup, setShowExitPopup] = useState(false);
-  const [showNewCardPopup, setShowNewCardPopup] = useState(false);
-  const [showHeaderUserPop, setShowHeaderUserPop] = useState(false);
-  const headerUserPopRef = useRef();
-  const newCardPopupRef = useRef();
-  const [user] = useState(getToken())
-  useClickOutside(headerUserPopRef, () => {
-    setShowHeaderUserPop(false);
-  });
-  useClickOutside(newCardPopupRef, () => {
-    setShowNewCardPopup(false);
-  });
+    const [user, setUser] = useState(getToken())
+    const navigate = useNavigate()
+    const context = useContext(ThemeContext)
+    const [isVisible, setIsVisible] = useState(false)
+    const { theme, toggleTheme } = useTheme() // Получаем текущую тему и функцию переключения
 
-  return (
-    <S.StyledHeader>
-      <S.Container>
-        <S.HeaderBlock>
-          <S.HeaderLogo>
-            <a href="" target="_self">
-              <img src={"/logo.png"} alt="logo"></img>
-            </a>
-          </S.HeaderLogo>
-          <div>
-            <a href="" target="_self">
-              <img src={"/logo_dark.png"} alt="logo"></img>
-            </a>
-          </div>
-          <S.HeaderNav>
-            <S.HeaderButtonNew onClick={() => setShowNewCardPopup(true)}>
-              Создать новую задачу
-            </S.HeaderButtonNew>
-            {showNewCardPopup && (
-          <PopNewCard 
-            ref={newCardPopupRef} 
-            onClose={() => setShowNewCardPopup(false)}
-          />
-        )}
-            <S.HeaderUser onClick={() => setShowHeaderUserPop(true)}>
-            {user ? getToken().name : ''}
-            </S.HeaderUser>
-            {showHeaderUserPop && (
-              <S.HeaderUserPop ref={headerUserPopRef}>
-                <S.HeaderUserName>   {getToken().name ? getToken().name : ''}</S.HeaderUserName>
-                <S.HeaderUserMail>   {getToken().login ? getToken().login : ''}</S.HeaderUserMail>
-                <S.HeaderUserTheme>
-                  <p>Темная тема</p>
-                  <input type="checkbox" name="checkbox"></input>
-                </S.HeaderUserTheme>
-                <button
-                  type="button"
-                  onClick={() => setShowExitPopup(true)}
-                >
-                  Выйти
-                </button>
-                {showExitPopup && (
-                  <PopUser onClose={() => setShowExitPopup(false)} />
-                )}
-              </S.HeaderUserPop>
-            )}
-          </S.HeaderNav>
-        </S.HeaderBlock>
-      </S.Container>
-    </S.StyledHeader>
-  );
+    const getVisibility = () => {
+        setIsVisible(!isVisible)
+    }
+
+    if (!context) {
+        throw new Error('Header must be wrapped in ThemeProvider')
+    }
+
+    return (
+        <S.SHeader>
+            <S.HeaderContainer>
+                <S.HeaderBlock>
+                    {theme === lightTheme && (
+                        <S.HeaderLogo>
+                            <Link to="/" target="_self">
+                                <S.HeaderLogoImg
+                                    src="/images/logo.png"
+                                    alt="logo"
+                                />
+                            </Link>
+                        </S.HeaderLogo>
+                    )}
+
+                    {theme === darkTheme && (
+                        <S.HeaderLogo>
+                            <Link to="/" target="_self">
+                                <S.HeaderLogoImg
+                                    src="images/logo_dark.png"
+                                    alt="logo"
+                                />
+                            </Link>
+                        </S.HeaderLogo>
+                    )}
+                    <S.HeaderNav>
+                        <S.HeaderButton onClick={() => navigate('/newcard')}>
+                            Создать новую задачу
+                        </S.HeaderButton>
+                        <S.HeaderUser onClick={getVisibility}>
+                            <Link>{user ? getToken().name : ''}</Link>
+                        </S.HeaderUser>
+                        {isVisible && (
+                            <S.HeaderUserPop>
+                                <S.HeaderUserPopName>
+                                    {getToken().name ? getToken().name : ''}
+                                </S.HeaderUserPopName>
+                                <S.HeaderUserPopMail>
+                                    {getToken().login ? getToken().login : ''}
+                                </S.HeaderUserPopMail>
+
+                                <S.HeaderUserPopTheme>
+                                    <p>Темная тема</p>
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        name="checkbox"
+                                        checked={theme === darkTheme}
+                                        onChange={toggleTheme}
+                                    />
+                                </S.HeaderUserPopTheme>
+
+                                <S.PopButtonLight
+                                    onClick={() => navigate('/exit')}
+                                    type="button"
+                                >
+                                    Выйти
+                                </S.PopButtonLight>
+                            </S.HeaderUserPop>
+                        )}
+                    </S.HeaderNav>
+                </S.HeaderBlock>
+            </S.HeaderContainer>
+        </S.SHeader>
+    )
 }

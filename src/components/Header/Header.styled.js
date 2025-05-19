@@ -1,179 +1,184 @@
-import styled from "styled-components";
 
-export const StyledHeader = styled.header`
-  width: 100%;
-  margin: 0 auto;
-  background-color: #ffffff;
-`;
+import styled from 'styled-components'
+export const SHeader = styled.header`
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+
+
+
+    @media screen and (max-width: 495px) {
+        .header__btn-main-new {
+            z-index: 3;
+            position: fixed;
+            left: 16px;
+            bottom: 30px;
+            top: auto;
+            width: calc(100vw - 32px);
+            height: 40px;
+            border-radius: 4px;
+            margin-right: 0;
+        }
+    }
+
+    @media screen and (max-width: 495px) {
+        .container {
+            width: 100%;
+            padding: 0 16px;
+        }
+    }
+`
+export const HeaderContainer = styled.div`
+    max-width: 1260px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+`
 
 export const HeaderBlock = styled.div`
-  height: 70px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 0 10px;
-`;
-
-export const HeaderLogo = styled.div`
-  img {
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+`
+export const HeaderLogoImg = styled.img`
     width: 85px;
-  }
-`;
+`
 
+export const HeaderLogo = styled.div``
 export const HeaderNav = styled.nav`
-  max-width: 290px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const HeaderButtonNew = styled.button`
-  width: 178px;
-  height: 30px;
-  border-radius: 4px;
-  background-color:#565EEF;
-  color: #ffffff;
-  border: none;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 500;
-  margin-right: 20px;
-
-  a {
-    color: #ffffff;
-  }
-
-  // &:hover {
-  //   background-color:rgb(28, 60, 201);
-  // }
-
-  @media screen and (max-width: 495px) {
-    .header__btn-main-new {
-      z-index: 3;
-      position: fixed;
-      left: 16px;
-      bottom: 30px;
-      top: auto;
-      width: calc(100vw - 32px);
-      height: 40px;
-      border-radius: 4px;
-      margin-right: 0;
-    }
-  }
-`;
-
-export const HeaderUser = styled.a`
-  height: 20px;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 20px;
-  color: #565eef;
-
-  // &:hover {
-  //   color: #33399b;
-  // }
-
-  // &:hover::after {
-  //   border-left-color: #33399b;
-  //   border-bottom-color: #33399b;
-  // }
-
-  &::after {
-    content: "";
-    display: block;
-    width: 6px;
-    height: 6px;
-    border-radius: 1px;
-    border-left: 1.9px solid #565eef;
-    border-bottom: 1.9px solid #565eef;
-    transform: rotate(-45deg);
-    margin: -6px 0 0 5px;
+    max-width: 290px;
     padding: 0;
-  }
-`;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 
-export const HeaderUserPop = styled.div`
-  position: absolute;
-  top: 61px;
-  right: 0;
-  width: 213px;
-  height: 205px;
-  border-radius: 10px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  background: #fff;
-  box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
-  padding: 34px;
-  text-align: center;
-  z-index: 2;
-
-  button {
-    width: 72px;
+export const HeaderButton = styled.button`
+    width: 178px;
     height: 30px;
-    background: transparent;
-    color: #565eef;
     border-radius: 4px;
-    border: 1px solid #565eef;
+    background-color: #565eef;
+    color: #ffffff;
+    border: none;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+    margin-right: 20px;
 
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: #ffffff;
+    float: right;
+    a {
+        width: 100%;
+        height: 100%;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     &:hover {
-      background-color: #565EEF;
-      color: #ffffff;
+        background-color: #33399b;
     }
+`
 
-    &:hover a {
-      color: #ffffff;
-    }
+export const HeaderUser = styled.div`
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer; 
 
     a {
-      color: #565eef;
+        color: #565eef;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
     }
-  }
-`;
 
-export const HeaderUserClose = styled.a`
-  position: absolute;
-  right: 15px;
-  top: 10px;
-`;
+    &::after {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        border-left: 1.9px solid #565eef;
+        border-bottom: 1.9px solid #565eef;
+        transform: rotate(-45deg);
+        margin-left: 5px;
+        transition: all 0.2s ease;
+    }
 
-export const HeaderUserName = styled.p`
-  color: #000;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 21px;
-  letter-spacing: -0.14px;
-  margin-bottom: 4px;
-`;
+    &:hover {
+        color: #33399b;
 
-export const HeaderUserMail = styled.p`
-  color: #94a6be;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: -0.14px;
-  margin-bottom: 10px;
-`;
+        a {
+            color: #33399b;
+        }
 
-export const HeaderUserTheme = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
+        &::after {
+            border-left-color: #33399b;
+            border-bottom-color: #33399b;
+        }
+    }
+`
 
-  p {
+export const HeaderUserPop = styled.div`
+    display: block;
+    position: absolute;
+    top: 61px;
+    right: 0;
+    width: auto;
+    height: auto;
+    width: 213px;
+    height: 205px;
+    border-radius: 10px;
+    border: 0.7px solid rgba(148, 166, 190, 0.4);
+    background: #fff;
+    box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
+    padding: 34px;
+    text-align: center;
+    z-index: 2;
+`
+export const HeaderUserPopName = styled.p`
     color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.14px;
+    margin-bottom: 4px;
+`
+
+export const HeaderUserPopMail = styled.p`
+    color: #94a6be;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: -0.14px;
-  }
+    margin-bottom: 10px;
+`
 
-  input[type="checkbox"] {
+export const HeaderUserPopTheme = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    p {
+        color: #000;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: -0.14px;
+    }
+    & input[type='checkbox'] {
     position: relative;
     width: 24px;
     height: 13px;
@@ -183,10 +188,9 @@ export const HeaderUserTheme = styled.div`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-  }
-
-  input[type="checkbox"]::before {
-    content: "";
+    }
+    & input[type='checkbox']::before {
+    content: '';
     position: absolute;
     top: 1px;
     left: 1px;
@@ -195,19 +199,38 @@ export const HeaderUserTheme = styled.div`
     border-radius: 50%;
     background-color: #94a6be;
     transition: 0.5s;
-  }
+}
 
-  input:checked[type="checkbox"]::before {
+& input:checked[type='checkbox']::before {
     left: 12px;
-  }
-`;
-
-export const Container = styled.div`
- max-width: 1260px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 30px;
-@media screen and (max-width: 495px) {
-    width: 100%;
-    padding: 0 16px;
-`;
+}
+`
+export const PopButtonLight = styled.button`
+    width: 72px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 0.7px solid var(--palette-navy-60, #565eef);
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 500;
+    letter-spacing: -0.14px;
+    color: #565eef;
+    margin: 0 auto;
+    p {
+        width: 100%;
+        height: 100%;
+        color: #565eef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &:hover {
+        background-color: #33399b;
+        color: #ffffff;
+    }
+`
