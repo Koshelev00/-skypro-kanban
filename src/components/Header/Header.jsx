@@ -32,7 +32,7 @@ export default function Header() {
                         <S.HeaderLogo>
                             <Link to="/" target="_self">
                                 <S.HeaderLogoImg
-                                    src="public/logo.png"
+                                    src="logo.png"
                                     alt="logo"
                                 />
                             </Link>
@@ -43,7 +43,7 @@ export default function Header() {
                         <S.HeaderLogo>
                             <Link to="/" target="_self">
                                 <S.HeaderLogoImg
-                                    src="public/logo_dark.png"
+                                    src="logo_dark.png"
                                     alt="logo"
                                 />
                             </Link>
@@ -54,15 +54,16 @@ export default function Header() {
                             Создать новую задачу
                         </S.HeaderButton>
                         <S.HeaderUser onClick={getVisibility}>
-                            <Link>{user ? getToken().name : ''}</Link>
+                            <Link>{user ? getToken().user.name : ''}</Link>
+                            
                         </S.HeaderUser>
                         {isVisible && (
                             <S.HeaderUserPop>
                                 <S.HeaderUserPopName>
-                                    {getToken().name ? getToken().name : ''}
+                                    {getToken().user.name ? getToken().user.name : ''}
                                 </S.HeaderUserPopName>
                                 <S.HeaderUserPopMail>
-                                    {getToken().login ? getToken().login : ''}
+                                    {getToken().user.login ? getToken().user.login : ''}
                                 </S.HeaderUserPopMail>
 
                                 <S.HeaderUserPopTheme>
