@@ -27,11 +27,12 @@ export default function Header() {
         <S.SHeader>
             <S.HeaderContainer>
                 <S.HeaderBlock>
+                    
                     {theme === lightTheme && (
                         <S.HeaderLogo>
                             <Link to="/" target="_self">
                                 <S.HeaderLogoImg
-                                    src="/images/logo.png"
+                                    src="public/logo.png"
                                     alt="logo"
                                 />
                             </Link>
@@ -42,7 +43,7 @@ export default function Header() {
                         <S.HeaderLogo>
                             <Link to="/" target="_self">
                                 <S.HeaderLogoImg
-                                    src="images/logo_dark.png"
+                                    src="public/logo_dark.png"
                                     alt="logo"
                                 />
                             </Link>
