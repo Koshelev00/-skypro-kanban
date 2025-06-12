@@ -13,6 +13,7 @@ export const CardsProvider = ({ children }) => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
+    if (user?.token) { // Проверяем наличие токена
         const loadCards = async () => {
             try {
                 const data = await fetchCards({ token: user.token })
@@ -22,7 +23,10 @@ export const CardsProvider = ({ children }) => {
             }
         }
         loadCards()
-    }, [user.token])
+    } else {
+        setCards([]) // Очищаем карточки при выходе
+    }
+}, [user?.token]) // Зависимость от токена
 
     const addNewCard = async ({ card }) => {
       const isoDate = dayjs(card?.date, 'DD.MM.YYYY').toISOString()

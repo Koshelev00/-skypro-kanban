@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react'
 import { AuthContext } from './AuthContext'
-import { getToken } from '../services/auth'
+
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(getToken())
-    useEffect(() => {
+    // Инициализируем состояние из localStorage
+    const [user, setUser] = useState(() => {
         try {
             const storedUser = localStorage.getItem('userInfo')
-            if (storedUser) {
-                setUser(JSON.parse(storedUser))
-            }
+            return storedUser ? JSON.parse(storedUser) : null
         } catch (error) {
             console.error('Ошибка при загрузке данных из localStorage:', error)
+            return null
         }
-    }, [])
+    })
 
     const updateUserInfo = (userData) => {
         setUser(userData)

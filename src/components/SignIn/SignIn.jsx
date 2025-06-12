@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import * as S from './SignIn.styled'
 import React from 'react'
-function SignIn({setIsAuth}) {
+
+function SignIn() {
     const navigate = useNavigate()
     const handleLogin = () => {
-        setIsAuth(true)
         navigate("/")
     }
     return (

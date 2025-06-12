@@ -63,27 +63,27 @@ const AuthForm = ({ isSignUp }) => {
         setError('')
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        if (!validateForm()) {
-            return
-        }
-        try {
-            const data = !isSignUp
-                ? await signIn({
-                      login: formData.login,
-                      password: formData.password,
-                  })
-                : await signUp(formData)
-            if (data) {
-                updateUserInfo(data)
-
-                navigate('/')
-            }
-        } catch (err) {
-            setError(err.message)
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!validateForm()) {
+        return
     }
+    try {
+        const data = !isSignUp
+            ? await signIn({
+                  login: formData.login,
+                  password: formData.password,
+              })
+            : await signUp(formData)
+        if (data) {
+            updateUserInfo(data)
+            // Редирект сразу после обновления пользователя
+            navigate('/')
+        }
+    } catch (err) {
+        setError(err.message)
+    }
+}
     return (
         <S.Container>
             <S.Card>
