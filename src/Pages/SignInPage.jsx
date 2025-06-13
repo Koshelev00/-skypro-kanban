@@ -1,12 +1,13 @@
-import AuthForm from "../components/SignIn/AuthForm";
-import { SGlobal } from "../Global.styled";
-function SignInPage({ setIsAuth }) {
-  return (
-    <>
-      <SGlobal />
-      <AuthForm setIsAuth={setIsAuth}  isSignUp={false}/>
-    </>
-  );
+
+import { GlobalStyles } from '../GlobalStyles.styled'
+import AuthForm from '../components/SignIn/AuthForm'
+function SignInPage({setIsAuth}) {
+    return (
+        <>
+            <GlobalStyles />
+            <AuthForm setIsAuth={setIsAuth}  isSignUp={false}/>
+        </>
+    )
 }
 
-export default SignInPage;
+export default SignInPage

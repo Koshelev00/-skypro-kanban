@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 
+import styled from 'styled-components'
 
 export const PopExit = styled.div`
     width: 100%;
@@ -77,7 +77,7 @@ export const PopExitButton = styled.button`
 `
 
 
-export const ButtonColor = styled.button`
+export const PopExitYes = styled.button`
     width: 153px;
     height: 30px;
     background-color: #565eef;
@@ -106,20 +106,6 @@ export const ButtonColor = styled.button`
         background-color: #33399b;
     }
 `
-
-
-// width: 132px;
-// height: 30px;
-// background-color: #565eef;
-// border-radius: 4px;
-// border: 0;
-// outline: none;
-// font-size: 14px;
-// font-weight: 500;
-// line-height: 1;
-// color: #ffffff;
-// float: right;
-
 export const PopExitNo = styled.button`
     width: 153px;
     height: 30px;

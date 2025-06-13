@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-export const SGlobal = createGlobalStyle`
-    * {
+export const GlobalStyles = createGlobalStyle`
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -37,8 +37,8 @@ export const SGlobal = createGlobalStyle`
     width: 100%;
     height: 100%;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    background-color: ${({ theme }) => theme?.bodyBg };
-    color: ${({ theme }) => theme?.textColor};
+    background-color: ${({ theme }) => theme?.bodyBg || '#ffffff'};
+    color: ${({ theme }) => theme?.textColor || '#000000'};
     transition: all 0.25s ease;
   }
 
@@ -62,3 +62,4 @@ export const SGlobal = createGlobalStyle`
     color: ${({ theme }) => theme?.grayText || '#ffffff'};
   }
 `
+

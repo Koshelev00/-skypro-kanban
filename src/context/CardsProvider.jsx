@@ -8,12 +8,11 @@ dayjs.extend(customParseFormat);
 
 export const CardsProvider = ({ children }) => {
     const [cards, setCards] = useState([])
-    const [loading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-    if (user?.token) { // Проверяем наличие токена
         const loadCards = async () => {
             try {
                 const data = await fetchCards({ token: user.token })
@@ -23,10 +22,7 @@ export const CardsProvider = ({ children }) => {
             }
         }
         loadCards()
-    } else {
-        setCards([]) // Очищаем карточки при выходе
-    }
-}, [user?.token]) // Зависимость от токена
+    }, [])
 
     const addNewCard = async ({ card }) => {
       const isoDate = dayjs(card?.date, 'DD.MM.YYYY').toISOString()

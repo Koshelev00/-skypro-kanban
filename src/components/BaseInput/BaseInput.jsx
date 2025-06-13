@@ -17,10 +17,10 @@ function BaseInput({ error, type, name, id, placeholder, value, onChange, autoCo
     )
 }
 
-function BaseButton({ id, text, onClick }) {
+function BaseButton({ id, text, onSubmit }) {
     return (
         <>
-            <S.Button type='button' id={id} onClick={onClick}>
+            <S.Button type='button' id={id} onClick={onSubmit}>
                 {text}
             </S.Button>
         </>
@@ -28,3 +28,4 @@ function BaseButton({ id, text, onClick }) {
 }
 
 export { BaseInput, BaseButton }
+

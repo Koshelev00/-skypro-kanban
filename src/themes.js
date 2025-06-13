@@ -18,7 +18,6 @@ export const lightTheme = {
   
   export const darkTheme = {
     bodyBg: '#1a1a1a',
-    headerBg: '#1a1a1a',
     textColor: '#ffffff',
     linkColor: '#ffffff',
     buttonBg: '#333333',

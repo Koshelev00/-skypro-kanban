@@ -39,13 +39,13 @@ const AuthForm = ({ isSignUp }) => {
         }
         if (!formData.login.trim()) {
             newErrors.login = true
-            setError('Поля не должны быть пустыми')
+            setError('Заполните все поля')
             isValid = false
         }
         if (!formData.password.trim()) {
             newErrors.password = true
             setError(
-                'Поля не должны быть пустыми'
+                'Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.'
             )
             isValid = false
         }
@@ -63,27 +63,27 @@ const AuthForm = ({ isSignUp }) => {
         setError('')
     }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!validateForm()) {
-        return
-    }
-    try {
-        const data = !isSignUp
-            ? await signIn({
-                  login: formData.login,
-                  password: formData.password,
-              })
-            : await signUp(formData)
-        if (data) {
-            updateUserInfo(data)
-            // Редирект сразу после обновления пользователя
-            navigate('/')
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (!validateForm()) {
+            return
         }
-    } catch (err) {
-        setError(err.message)
+        try {
+            const data = !isSignUp
+                ? await signIn({
+                      login: formData.login,
+                      password: formData.password,
+                  })
+                : await signUp(formData)
+            if (data) {
+                updateUserInfo(data)
+
+                navigate('/')
+            }
+        } catch (err) {
+            setError(err.message)
+        }
     }
-}
     return (
         <S.Container>
             <S.Card>
@@ -123,8 +123,10 @@ const AuthForm = ({ isSignUp }) => {
                             placeholder="Пароль"
                             value={formData.password}
                             onChange={handleChange}
-                            autoComplete="current-password"
-                            
+                            autoСomplete="current-password"
+                            // {
+                            //     !isSignUp ? "current-password" : "new-password"
+                            // }
                         />
                     </S.InputForm>
 
@@ -132,7 +134,7 @@ const AuthForm = ({ isSignUp }) => {
                 </S.Form>
                 <BaseButton
                     type="button"
-                    onClick={handleSubmit}
+                    onSubmit={handleSubmit}
                     text={isSignUp ? 'Зарегистрироваться' : 'Войти'}
                 />
                 {!isSignUp && (

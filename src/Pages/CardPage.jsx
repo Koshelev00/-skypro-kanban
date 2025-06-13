@@ -1,6 +1,6 @@
-import PopBrowse from "../components/PopBrowse/PopBrowse";
+import PopBrowse from '../components/PopBrowse/PopBrowse'
 
 function CardPage() {
-  return <PopBrowse />;
+    return <PopBrowse />
 }
-export default CardPage;
+export default CardPage

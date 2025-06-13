@@ -1,29 +1,42 @@
-import { useContext } from 'react' // Добавлен импорт useContext
-import MainPage from './Pages/MainPage'
-import SignInPage from './Pages/SignInPage'
-import SignUpPage from './Pages/SignUpPage'
-import NotFoundPage from './Pages/NotFoundPage'
+import { useState } from 'react'
+
+import MainPage from './pages/MainPage'
+import SignInPage from './pages/SignInPage'
+import SignUpPage from './pages/SignUpPage'
+import NotFoundPage from './pages/NotFoundPage'
 import PrivateRoute from './PrivateRoute'
-import ExitPage from './Pages/ExitPage'
-import CardPage from './Pages/CardPage'
+import ExitPage from './pages/ExitPage'
+import CardPage from './pages/CardPage'
+
 import { Route, Routes } from 'react-router-dom'
-import NewCardPage from './Pages/newCardPage'
-import { AuthContext } from './context/AuthContext' // Добавлен импорт AuthContext
+
+import { getToken } from './services/auth'
+import NewCardPage from './pages/newCardPage'
 
 function AppRoutes() {
-    const { user } = useContext(AuthContext) // Используем контекст
-    
+    const [isAuth, setIsAuth] = useState(!!getToken())
+
     return (
         <Routes>
-            <Route element={<PrivateRoute isAuth={!!user} />}>
+            <Route element={<PrivateRoute isAuth={isAuth} />}>
                 <Route path="/" element={<MainPage />}>
-                    <Route path="/exit" element={<ExitPage />} />
+                    <Route
+                        path="/exit"
+                        element={<ExitPage setIsAuth={setIsAuth} />}
+                    />
                     <Route path="/card/:id" element={<CardPage />} />
                     <Route path="/newcard" element={<NewCardPage />} />
                 </Route>
             </Route>
-            <Route path="/signIn" element={<SignInPage />} />
-            <Route path="/signUp" element={<SignUpPage />} />
+            <Route
+                path="/signIn"
+                element={<SignInPage setIsAuth={setIsAuth} />}
+            />
+            <Route
+                path="/signUp"
+                element={<SignUpPage setIsAuth={setIsAuth} />}
+            />
+
             <Route path="*" element={<NotFoundPage />} />
         </Routes>
     )

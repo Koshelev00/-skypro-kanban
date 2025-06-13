@@ -1,16 +1,12 @@
-// import '../../App.css'
-import * as S from "./PopBrowse.styled";
-import Calendar from '../Calendar/Calendar'
-
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
-
+import Calendar from '../Calendar/Calendar'
 import { useContext } from 'react'
 import { CardsContext } from '../../context/CardsContext'
+import * as S from './PopBrows.styled'
 
-
- function PopBrowse() {
+export default function PopBrowse() {
     const { id } = useParams()
     const navigate = useNavigate()
     const { cards, updateCard, removeCard } = useContext(CardsContext)
@@ -270,4 +266,3 @@ import { CardsContext } from '../../context/CardsContext'
         </S.PopBrows>
     )
 }
-export default PopBrowse;

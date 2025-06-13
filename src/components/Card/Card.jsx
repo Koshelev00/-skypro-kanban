@@ -80,4 +80,3 @@ export function Card({ theme, date, title, id }) {
         </S.SCard>
     )
 }
-export default Card

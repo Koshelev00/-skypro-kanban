@@ -18,7 +18,6 @@ export const ThemeProvider = ({ children, theme: initialTheme }) => {
     )
 }
 
-
 export const useTheme = () => {
     const context = useContext(ThemeContext)
     if (!context) {

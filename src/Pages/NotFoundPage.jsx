@@ -1,6 +1,7 @@
-import NotFound from "../components/NotFound/NotFound";
-function NotFoundPage() {
-  return <NotFound />;
+import NotFound from '../components/NotFound/NotFound'
+
+const NotFoundPage = () => {
+    return <NotFound />
 }
 
-export default NotFoundPage;
+export default NotFoundPage

@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import * as S from './SignIn.styled'
-import React from 'react'
+import { Link } from 'react-router-dom'
 
-function SignIn() {
+function SignIn({ setIsAuth }) {
     const navigate = useNavigate()
     const handleLogin = () => {
-        navigate("/")
+        setIsAuth(true)
+        navigate('/')
     }
     return (
         <S.Container>
@@ -13,12 +14,13 @@ function SignIn() {
                 <S.Title>Вход</S.Title>
                 <form>
                     <S.Input type="email" placeholder="Эл. почта" />
-                    <S.Input type="password" placeholder="Пароль" />
-                    <S.Button onClick={handleLogin} type="button">Войти</S.Button>
+                    <S.Input type="password" placeholder="Пароль" autoComplete="current-password"/>
+                    <S.Button onClick={handleLogin} type="button">
+                        Войти
+                    </S.Button>
                 </form>
                 <S.Text>
-                    Нужно зарегистрироваться?{' '}
-                    <S.Link href="/signUp">Регистрируйтесь здесь</S.Link>
+                    <Link to="/signUp">Регистрируйтесь здесь</Link>
                 </S.Text>
             </S.Card>
         </S.Container>
