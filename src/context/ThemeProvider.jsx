@@ -2,8 +2,8 @@ import { ThemeContext } from './ThemeContext'
 import { useContext, useState } from 'react'
 import { lightTheme, darkTheme } from '../themes'
 
-export const ThemeProvider = ({ children, theme: initialTheme }) => {
-    const [theme, setTheme] = useState(initialTheme)
+export const ThemeProvider = ({ children}) => {
+    const [theme, setTheme] = useState(lightTheme)
 
     const toggleTheme = () => {
         const newTheme = theme === lightTheme ? darkTheme : lightTheme
