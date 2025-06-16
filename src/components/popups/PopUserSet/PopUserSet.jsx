@@ -1,15 +1,32 @@
-import '../../../App.css'
-export default function PopUserSet() {
+import * as S from './PopUser.styled'
+import { Link, useNavigate } from 'react-router-dom'
+function PopUser({ setIsAuth }) {
+    const navigate = useNavigate()
+    const handleLogout = (event) => {
+        event.preventDefault()
+        setIsAuth(false)
+        localStorage.removeItem('userInfo')
+        navigate('/signIn')
+    }
     return (
-        <div className="header__pop-user-set pop-user-set" id="userSet">
-          {/* <!-- <a href="">x</a> --> */}
-          <p className="pop-user-set__name">Ivan Ivanov</p>
-          <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-          <div className="pop-user-set__theme">
-            <p>Темная тема</p>
-            <input type="checkbox" className="checkbox" name="checkbox"></input>
-          </div>
-          <button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-        </div>
+        <S.PopExit id="popExit">
+            <S.PopContainer>
+                <S.PopExitBlock>
+                    <S.PopExitTtl>Выйти из аккаунта?</S.PopExitTtl>
+              
+                        <S.PopExitFormGroup>
+                            <S.PopExitButton onClick={handleLogout} id="exitYes">
+                                Да, выйти
+                            </S.PopExitButton>
+                            <S.PopExitNo id="exitNo">
+                                <Link to="/">Нет, остаться</Link>
+                            </S.PopExitNo>
+                        </S.PopExitFormGroup>
+                 
+                </S.PopExitBlock>
+            </S.PopContainer>
+        </S.PopExit>
     )
 }
+
+export default PopUser
