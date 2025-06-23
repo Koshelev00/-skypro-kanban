@@ -24,7 +24,7 @@ export default function Header() {
     }
 
     return (
-        <S.SHeader>
+        <S.SHeader theme={theme} >
             <S.HeaderContainer>
                 <S.HeaderBlock>
                     {theme === lightTheme && (

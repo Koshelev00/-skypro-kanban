@@ -1,17 +1,17 @@
 import { useState } from 'react'
 
-import MainPage from './pages/MainPage'
-import SignInPage from './pages/SignInPage'
-import SignUpPage from './pages/SignUpPage'
-import NotFoundPage from './pages/NotFoundPage'
+import MainPage from './Pages/MainPage'
+import SignInPage from './Pages/SignInPage'
+import SignUpPage from './Pages/SignUpPage'
+import NotFoundPage from './Pages/NotFoundPage'
 import PrivateRoute from './PrivateRoute'
-import ExitPage from './pages/ExitPage'
-import CardPage from './pages/CardPage'
+import ExitPage from './Pages/ExitPage'
+import CardPage from './Pages/CardPage'
 
 import { Route, Routes } from 'react-router-dom'
 
 import { getToken } from './services/auth'
-import NewCardPage from './pages/newCardPage'
+import NewCardPage from './Pages/newCardPage'
 
 function AppRoutes() {
     const [isAuth, setIsAuth] = useState(!!getToken())
